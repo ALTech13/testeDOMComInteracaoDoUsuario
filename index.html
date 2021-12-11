@@ -1,0 +1,88 @@
+<!--Pegando dados de um formulário, iteragindo com o usuário - Eventos DOM-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM - Formulário</title>
+
+    <style>
+        body{
+            background-color: burlywood;
+            font: normal 10pt arial;
+            text-align: center;
+        }
+      
+        .container{
+            background-color: cadetblue;
+            max-width: 500px;
+            height: 165px;
+            margin: 100px auto;
+        }
+
+        .resultado{
+            text-align: left;
+            padding: 10px 0 0 38px;
+        }
+        #res{
+            border: lawngreen 2px dotted;
+            width: 400px;
+            height: 50px;
+            background-color: lightgoldenrodyellow;
+        }
+        #limpar{
+            margin: 3px 0 0 0;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <h1>Praticando eventos DOM com interação do usuário via formulário</h1>
+    <hr>
+    <div class="container">
+        <h2>Digite dois números:</h2>
+        <input type="number" name="tn1" id="tn1" placeholder="Digite um número">
+        <input type="number" name="tn2" id="tn2" placeholder="Digite outro número">
+        <button id="calcular">Calcular</button>
+        <br>
+        <div class="resultado">
+            <label for="res">Resultado:</label>
+            <div id="res"></div>
+            <button id="limpar">Limpar</button>
+        </div>
+    </div>
+    
+    <script>
+        var calcular = window.document.querySelector('#calcular')
+        var limpar = window.document.querySelector('#limpar')
+
+        calcular.addEventListener('click', calc)
+        limpar.addEventListener('click', clear)
+
+        function calc(){
+            var tn1 = window.document.querySelector('#tn1')
+            var tn2 = window.document.querySelector('#tn2')
+            var resultado = window.document.querySelector('#res')
+            
+            let n1 = Number(tn1.value)
+            let n2 = Number(tn2.value)
+            let soma = n1 + n2
+
+            resultado.innerHTML = `A soma entre ${n1} e ${n2} é: <strong>${soma}</strong>`
+
+        }
+
+        function clear(){
+            document.querySelector('#tn1').value = ""
+            document.querySelector('#tn2').value = ""
+            document.querySelector('#res').innerHTML = ""
+        }
+
+        
+
+        
+    </script>
+</body>
+</html>
